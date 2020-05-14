@@ -6,11 +6,17 @@ from core.views import TestView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls')),
     path('', TestView.as_view(), name='test'),
-    path('api/token/', obtain_auth_token, name='obtain-token')
+
+    # third-party: pip install djangorestframework
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/token/', obtain_auth_token, name='obtain-token'),
+
+    # third-party: pip install django-rest-auth
+    path('rest_auth/', include('rest_auth.urls'))
 ]
 
+# Using obtain_auth_token
 # The following code could be use to post a request to this api in order to
 # get the rest authtoken for the user
 """
@@ -39,6 +45,25 @@ headers = {
 }
 
 response = requests.request("GET", url, headers=headers, data=payload)
+
+print(response.text.encode('utf8'))
+"""
+
+# Using django-rest-auth
+"""
+url = "http://<ip>/rest_auth/login/"
+
+payload = {'username': '<user>',
+           'password': '<passwd>'}
+files = [
+
+]
+headers = {
+    'Cookie': 'csrftoken=Gh5e3JOQwMsNGGVJXhIE3nNifnXFMOLAJ5tFXmiH04m37eyC7af6aTMswWiOtO2O; sessionid=4qvonvdbn6pb03fgot0xf3mcv13v2ptl'
+}
+
+response = requests.request(
+    "POST", url, headers=headers, data=payload, files=files)
 
 print(response.text.encode('utf8'))
 """
