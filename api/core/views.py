@@ -8,7 +8,13 @@ from .models import Post
 class TestView(APIView):
     def get(self, request, *args, **kwargs):
         qs = Post.objects.all()
-        serializer = PostSerializer(qs, many=True)
+
+        # Serialize all the posts
+        # serializer = PostSerializer(qs, many=True)
+
+        # Serialize single instance
+        post = qs.first()
+        serializer = PostSerializer(post)
 
         return Response(serializer.data)
 
