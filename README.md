@@ -7,9 +7,9 @@ docker-compose down -v --remove-orphans
 
 # Creting envs
 
-pipenv install python==3.8
-pipenv shell
-pipenv install django==3.0
+python3 -m venv env
+source env/bin/activate
+pip install django==3.0
 pipenv install djangorestframework
 
 pipenv run pip freeze  > requirements.txt 
