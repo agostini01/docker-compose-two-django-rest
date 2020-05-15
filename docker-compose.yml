@@ -9,7 +9,7 @@ services:
     volumes: 
       - ./app/:/usr/src/app/
     ports: 
-      - 8000:8000
+      - 80:8000
     user: ${CURRENT_UID}
   api:
     build:
@@ -19,5 +19,5 @@ services:
     volumes: 
       - ./api/:/usr/src/api/
     ports: 
-      - 80:8888
+      - 8888:8888
     user: ${CURRENT_UID}
