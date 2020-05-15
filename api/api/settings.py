@@ -25,7 +25,7 @@ SECRET_KEY = '_2zly_*z2x!stp+6nz4^_82+g8coe8+)%py!s4-u$=pzz_$v+u'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['129.10.44.35','localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['129.10.44.35', 'localhost', '127.0.0.1', 'api']
 
 
 # Application definition
@@ -128,7 +128,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES' : [
+    'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication'
     ]
 }
