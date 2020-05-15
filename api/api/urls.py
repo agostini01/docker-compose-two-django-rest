@@ -2,11 +2,11 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.authtoken.views import obtain_auth_token
 
-from core.views import TestView
+from core.views import PostView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TestView.as_view(), name='test'),
+    path('', PostView.as_view(), name='test'),
 
     # third-party: pip install djangorestframework
     path('api-auth/', include('rest_framework.urls')),
