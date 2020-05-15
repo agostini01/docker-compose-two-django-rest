@@ -28,6 +28,10 @@ class PostCreateView(generics.CreateAPIView):
 
 class PostView(generics.ListCreateAPIView):
     """Handles POST and GET methods methods."""
+
+    # Comment this to require login/authorization token
+    permission_classes = [IsAuthenticated, ]
+
     serializer_class = PostSerializer
     queryset = Post.objects.all()
 
