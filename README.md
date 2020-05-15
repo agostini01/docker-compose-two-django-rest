@@ -1,6 +1,6 @@
 # About
 
-This projects implements 2 containers. The first container (api) provides a
+This project implements 2 containers. The first container (api) provides a
 rest api to access a local database. The other container (web) uses
 `requests` python library to submit get and post requests to the api
 container.
